@@ -32,21 +32,48 @@ namespace Connect4Game
            
         }
 
+        private bool CheckLine(int r, int c, char piece) //
+        {
+            return CheckDirection(r, c, piece, 1, 0) || // Horizontal
+                   CheckDirection(r, c, piece, 0, 1) || // Vertical
+                   CheckDirection(r, c, piece, 1, 1) || // Diagonal /
+                   CheckDirection(r, c, piece, 1, -1);  // Diagonal \
+        }
+
+         private bool CheckDirection()
+        {
+            int count = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                int newRow = r + i * rDir;
+                int newCol = c + i * cDir;
+                if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols || grid[newRow, newCol] != piece)
+                {
+                    break;
+                }
+                count++;
+            }
+            return count == 4;
+        }
+        
         private bool CheckWin()
         {
-           
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    if (grid[r, c] == piece)
+                    {
+                        if (CheckLine(r, c, piece))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
-
-        private bool CheckLine()
-        {
-           
-        }
-
-        private bool CheckDirection()
-        {
-           
-        }
-
+       
         public void DisplayGrid()
         {
            
