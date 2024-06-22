@@ -21,10 +21,14 @@ namespace Connect4Game
 }
 
 
-        public void DropPiece()
+        public void DropPiece(int col, char piece)
         {
-            
-           
+             for (int r = rows - 1; r >= 0; r--)
+        {
+     if (grid[r, col] == '.')
+        {
+         grid[r, col] = piece;
+     } }
            
         }
 
