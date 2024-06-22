@@ -76,12 +76,26 @@ namespace Connect4Game
        
         public void DisplayGrid()
         {
-           
+           for (int r = 0; r < rows; r++)
+    {
+        for (int c = 0; c < cols; c++)
+        {
+            Console.Write(grid[r, c] + " ");
+        }
+        Console.WriteLine();
+    }
+
+    // Display column numbers at the bottom
+    for (int c = 0; c < cols; c++)
+    {
+        Console.Write(c + " ");
+    }
+    Console.WriteLine();
         }
 
-        public bool IsColumnFull()
+        public bool IsColumnFull(int col)
         {
-            
+        return grid[0, col] != '.';
         }
     }
 
