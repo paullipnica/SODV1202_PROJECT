@@ -20,10 +20,6 @@ namespace Connect4Game
     }
 }
 
-        public ConnectGrid()
-        {
-          
-        }
 
         public void DropPiece()
         {
@@ -108,6 +104,9 @@ namespace Connect4Game
 
     class Program
     {
-
+         static void Main(string[] args)
+        {
+    
+        }
     }
 }
