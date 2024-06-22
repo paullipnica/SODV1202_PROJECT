@@ -2,9 +2,23 @@
 
 namespace Connect4Game
 {
-    class GameGrid
+    class GameGrid // This is to define our Grid for the game. We opted for a 6 by 7
     {
-       
+       private char[,] grid;
+       private int rows = 6;
+       private int cols = 7;
+
+       public GameGrid()
+{
+        grid = new char[rows, cols];
+        for (int r = 0; r < rows; r++)
+    {
+        for (int c = 0; c < cols; c++)
+        {
+            grid[r, c] = '.';
+        }
+    }
+}
 
         public ConnectGrid()
         {
