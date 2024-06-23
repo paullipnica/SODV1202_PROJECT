@@ -118,18 +118,13 @@ namespace Connect4Game
            
         }
 
-        private void AITurn()
-        {
-            
-        }
-
         public void Winner()
         {
           
         }
     }
 
-    abstract class Player
+    abstract class Player // created an abstract class of Player in case we want to add AI
     {
         public abstract void TakeTurn();
     }
@@ -142,10 +137,6 @@ namespace Connect4Game
         }
     }
 
-    class AIPlayer : Player
-    {
-       
-    }
 
     class Program
     {
