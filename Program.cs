@@ -154,26 +154,55 @@ namespace Connect4Game
 
  class GameMaster
     {
-        
+    private GameGrid grid; 
+    private Player player1; 
+    private Player player2; 
+    private bool isPlayer1Turn; // To know which player's turn it is
+
+     public GameMaster()
+    {
+        grid = new GameGrid(); 
+        player1 = new HumanPlayer('X'); // Initialize player 1 with 'X'
+        player2 = new HumanPlayer('O'); // Initialize player 2 with 'O'
+        isPlayer1Turn = true; // Player 1 starts first
+    }
         public void StartGame()
         {
-         
+         while (true)
+        {
+            grid.DisplayGrid(); // Displays the current state of the grid
+            PlayGame(); // Letting the current player take their turn
+            // Checking if the current player has won after their turn
+            if (grid.CheckWin(isPlayer1Turn ? 'X' : 'O'))
+            {
+                Winner(isPlayer1Turn); 
+                break; 
+            }
+            isPlayer1Turn = !isPlayer1Turn; // Switching turns between players
+        }
       
         }
-
-        private void PlayGame()
+        
+        private void PlayGame()// to manage the player's turn which allow them to take turns
         {
-            
+             if (isPlayer1Turn)
+        {
+            PlayerTurn(player1); //player 1's turn
+        }
+        else
+        {
+            PlayerTurn(player2); //player 2's turn
+        }
         }
 
-        private void PlayerTurn(bool isPlayer1)
+        private void PlayerTurn(Player player)
         {
-           
+           player.TakeTurn(grid); // Calls the TakeTurn method to place the player's piece on the grid
         }
 
-        public void Winner()
+        public void Winner(bool isPlayer1)
         {
-          
+           Console.WriteLine("Player " + (isPlayer1 ? "1" : "2") + " wins!"); // To announce which player wins
         }
     }
 
