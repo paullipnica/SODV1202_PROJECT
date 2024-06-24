@@ -209,9 +209,10 @@ namespace Connect4Game
 
     class Program
     {
-         static void Main(string[] args)
+        static void Main(string[] args)
         {
-    
+            GameMaster game = new GameMaster();
+            game.StartGame();
         }
     }
 }
