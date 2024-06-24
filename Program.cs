@@ -126,7 +126,13 @@ namespace Connect4Game
 
     abstract class Player // created an abstract class of Player in case we want to add AI
     {
-        public abstract void TakeTurn();
+    protected char piece;
+    public Player(char piece)
+  {
+      this.piece = piece;
+  }
+
+     public abstract void TakeTurn(GameGrid grid);
     }
 
     class HumanPlayer : Player
