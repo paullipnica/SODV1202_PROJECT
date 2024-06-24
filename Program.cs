@@ -99,30 +99,7 @@ namespace Connect4Game
         }
     }
 
-    class GameMaster
-    {
-        
-        public void StartGame()
-        {
-         
-      
-        }
-
-        private void PlayGame()
-        {
-            
-        }
-
-        private void PlayerTurn(bool isPlayer1)
-        {
-           
-        }
-
-        public void Winner()
-        {
-          
-        }
-    }
+   
 
     abstract class Player // created an abstract class of Player in case we want to add AI
     {
@@ -174,6 +151,31 @@ namespace Connect4Game
         grid.DropPiece(col, piece); //if successful a piece will drop from the drop piece method found in the GameGrid Class
     }
 }
+
+ class GameMaster
+    {
+        
+        public void StartGame()
+        {
+         
+      
+        }
+
+        private void PlayGame()
+        {
+            
+        }
+
+        private void PlayerTurn(bool isPlayer1)
+        {
+           
+        }
+
+        public void Winner()
+        {
+          
+        }
+    }
 
 
     class Program
