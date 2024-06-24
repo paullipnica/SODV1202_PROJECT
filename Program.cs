@@ -137,11 +137,43 @@ namespace Connect4Game
 
     class HumanPlayer : Player
     {
-        public override void TakeTurn()
+          public override void TakeTurn(GameGrid grid)
+    {
+        int col;
+        while (true) //we use a loop to work with the user input 
         {
-            
+            try //Begins a block of code that will attempt to execute the enclosed statements. 
+                //If any exceptions are thrown within this block, they will be caught by the corresponding catch blocks.
+            {
+                Console.WriteLine("Enter the column (1-7) to drop your piece:"); 
+                col = int.Parse(Console.ReadLine()) - 1;
+                if (col < 1 || col > 7) //Checks if the column number is outside the valid range
+                {
+                    throw new ArgumentOutOfRangeException("Column must be between 1 and 7.");
+                }
+                if (grid.IsColumnFull(col)) //Calls the IsColumnFull method on the grid object to check if the specified column is already full
+                {
+                    throw new InvalidOperationException("The selected column is full.");
+                }
+                break;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input. Please enter a number between 1 and 7."); //catches user error input and loops again to ask for another imput
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
+        grid.DropPiece(col, piece); //if successful a piece will drop from the drop piece method found in the GameGrid Class
     }
+}
 
 
     class Program
