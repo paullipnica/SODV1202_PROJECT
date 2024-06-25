@@ -199,8 +199,13 @@ namespace Connect4Game
                     break;
                 }
 
-                
-                isPlayer1Turn = !isPlayer1Turn; // Switching turns between players
+                // To check if the grid is full and there's no winner
+            if (grid.IsFull())
+            {
+                Console.WriteLine("The game is a draw!"); 
+                break; // Exit the game loop
+            }
+                isPlayer1Turn = !isPlayer1Turn; // Switch turns between players
             }
 
         }
