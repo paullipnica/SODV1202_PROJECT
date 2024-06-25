@@ -29,6 +29,7 @@ namespace Connect4Game
                 if (grid[r, col] == '.')
                 {
                     grid[r, col] = piece;
+                    break;
                 }
             }
 
