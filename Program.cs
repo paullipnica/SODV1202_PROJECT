@@ -97,10 +97,21 @@ namespace Connect4Game
             Console.WriteLine();
         }
 
-        public bool IsColumnFull(int col)
+        public bool IsColumnFull(int col) // to check if the specific column is full
         {
             return grid[0, col] != '.';
         }
+        public bool IsFull()// to check if the whole grid is full and no more moves can be made
+        {
+        for (int c = 0; c < cols; c++)
+        {
+            if (grid[0, c] == '.')
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     }
 
 
@@ -187,6 +198,8 @@ namespace Connect4Game
                     Winner(isPlayer1Turn);
                     break;
                 }
+
+                
                 isPlayer1Turn = !isPlayer1Turn; // Switching turns between players
             }
 
