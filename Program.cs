@@ -90,7 +90,7 @@ namespace Connect4Game
             }
 
             // Display column numbers at the bottom
-            for (int c = 0; c < cols; c++)
+            for (int c = 1; c <= cols; c++)
             {
                 Console.Write(c + " ");
             }
