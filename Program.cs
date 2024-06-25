@@ -70,12 +70,12 @@ namespace Connect4Game
                     {
                         if (CheckLine(r, c, piece))
                         {
-                            return false;
+                            return true;
                         }
                     }
                 }
             }
-            return true;
+            return false;
         }
 
         public void DisplayGrid()
@@ -132,7 +132,7 @@ namespace Connect4Game
                 {
                     Console.WriteLine("Enter the column (1-7) to drop your piece:");
                     col = int.Parse(Console.ReadLine()) - 1;
-                    if (col < 0 || col >= 7) //Checks if the column number is outside the valid range
+                    if (col < 0 || col > 6) //Checks if the column number is outside the valid range
                     {
                         throw new ArgumentOutOfRangeException("Column must be between 1 and 7.");
                     }
@@ -196,10 +196,12 @@ namespace Connect4Game
         {
             if (isPlayer1Turn)
             {
+                Console.WriteLine("Player 1's turn");
                 PlayerTurn(player1); //player 1's turn
             }
             else
             {
+                Console.WriteLine("Player 2's turn");
                 PlayerTurn(player2); //player 2's turn
             }
         }
@@ -220,6 +222,9 @@ namespace Connect4Game
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Connect 4, simply connect 4 to win");
+            Console.WriteLine("Player 1 is X and Player 2 is O");
+            Console.WriteLine("Player 1 Begin  \n");
             GameMaster game = new GameMaster();
             game.StartGame();
         }
